@@ -24,11 +24,11 @@ public class BicicletariaVetor {
 
         Scanner Ler = new Scanner(System.in);
         produtos[] novaBicicleta = new produtos[10];
-        clientesVetor[] novoCliente = new clientesVetor[10];
+        clientes[] novoCliente = new clientes[10];
 
         for (int i = 0; i < 10; i++) {
             novaBicicleta[i] = new produtos();
-            novoCliente[i] = new clientesVetor();
+            novoCliente[i] = new clientes();
 
         }
 

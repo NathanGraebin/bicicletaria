@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author Nathanelisabetinho
  */
-class clientesVetor {
+class clientes {
 
     int codigoCliente;
     String nome;
