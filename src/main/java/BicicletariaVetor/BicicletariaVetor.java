@@ -2,8 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
-package bicicletariaVetor;
-
+package BicicletariaVetor;
 
 import java.util.Scanner;
 
@@ -15,33 +14,29 @@ public class BicicletariaVetor {
 
     public static void main(String[] args) {
 
-    
-
         menu();
 
     }
 
-
-
     public static void menu() {
+        int idConta;
         
-        
+
         Scanner Ler = new Scanner(System.in);
-        bicicletasVetor[] novaBicicleta = new bicicletasVetor[10];
+        produtos[] novaBicicleta = new produtos[10];
         clientesVetor[] novoCliente = new clientesVetor[10];
-        
+
         for (int i = 0; i < 10; i++) {
-            novaBicicleta[i] = new bicicletasVetor();
+            novaBicicleta[i] = new produtos();
             novoCliente[i] = new clientesVetor();
 
         }
-        
 
         int op = -1;
         while (op != 0) {
             System.out.println("[1] - CADASTRAR CLIENTE");
-            System.out.println("[2] - CADASTRAR PRODUTO");
-            System.out.println("[3] - EFETUAR VENDA");
+            System.out.println("[2] - BUSCAR CLIENTE");
+            System.out.println("[3] - EXCLUIR CLIENTE");
             System.out.println("[4] - EDITAR CLIENTE");
             System.out.println("[5] - EXCLUIR");
             System.out.println("[6] - MANUTENÇÃO");
@@ -50,70 +45,53 @@ public class BicicletariaVetor {
             switch (op) {
 
                 case 1:
-                    
                     System.out.println("CADASTRAR CLIENTE");
 
                     for (int i = 0; i < 10; i++) {
-                        //novoCliente[i].codigoCliente = 0 + i;
-                        //novoCliente[i].nome = "Neita" + i;
-                        //novoCliente[i].telefone = ("KFT BIKES" + (i));
-                        //novoCliente[i].endereço = ("FENRE 21v" + (i));
-                        //novoCliente[i].cidade = ("JOWKL" + (i));
-                        //novoCliente[i].estado = ("Carbono 2" + (i));
-                        //novoCliente[i].cpf = ("preta maron" + (i));
-                        //novoCliente[i].rg = ("29" + (i));
-                        //novoCliente[i].email = ("algo@email.com" + (i));
-                        
 
-                        System.out.println(novoCliente[i].codigoCliente);
-                        
-                        novoCliente[i].cadastrar(novoCliente[i].codigoCliente,novoCliente[i].nome,
-                        novoCliente[i].telefone,novoCliente[i].endereço,novoCliente[i].cidade,
-                        novoCliente[i].estado,novoCliente[i].cpf,novoCliente[i].rg,novoCliente[i].email);
+                        if (novoCliente[i].getNome() == null) {
+                            System.out.println("Vetor livre > " + i);
+                            novoCliente[i].cadastrar();
+                            i = 10;
+                        } else {
+                            System.out.println("Vetor Ocupado, vai para o proximo > " + i);
+
+                        }
                     }
-                    
-                    
                     break;
 
                 case 2:
-
-                    System.out.println("CADASTRAR PRODUTO");
+                    
+                    System.out.println("BUSCAR CLIENTE");
+                    System.out.println("INFORME O ID DO CLIENTE");
+                    idConta = Ler.nextInt();
 
                     for (int i = 0; i < 10; i++) {
-                        novaBicicleta[i].codigoBicicleta = 0 + i;
-                        novaBicicleta[i].estoque = 0 + i;
-                        novaBicicleta[i].marca = ("KFT BIKES" + (i));
-                        novaBicicleta[i].modelo = ("FENRE 21v" + (i));
-                        novaBicicleta[i].fabricante = ("JOWKL" + (i));
-                        novaBicicleta[i].materialQuadro = ("Carbono 2" + (i));
-                        novaBicicleta[i].cor = ("preta maron" + (i));
-                        novaBicicleta[i].aro = ("29" + (i));
-                        novaBicicleta[i].tamanho = ("145 x 80 x 23 cm; 15 Quilogramas" + (i));
-                        novaBicicleta[i].raio = ("Atakaf" + (i));
-                        novaBicicleta[i].pneu = ("Atakaf" + (i));
-                        novaBicicleta[i].freio = ("Shimaru" + (i));
-                        novaBicicleta[i].pedaleira = ("Pedal em Nylon" + (i));
-                        novaBicicleta[i].cambio = ("Shimaru" + (i));
-                        novaBicicleta[i].corrente = ("Shimaru" + (i));
-                        novaBicicleta[i].coroa = ("Shimaru" + (i));
-                        novaBicicleta[i].quantidadeMarchas = ("21" + (i));
-                        novaBicicleta[i].guidao = ("Mahunte" + (i));
-                        novaBicicleta[i].banco = ("Kaffer" + (i));
-                        novaBicicleta[i].suspensão = ("Dianteira" + (i));
+                        novoCliente[i].buscarCliente(idConta);
 
-                        System.out.println(novaBicicleta[i].guidao);
                     }
+
                     break;
 
                 case 3:
-                    break;
+                    
+                    System.out.println("BUSCAR CLIENTE PARA EXCLUIR");
+                    System.out.println("INFORME O ID DO CLIENTE ");
+                    idConta = Ler.nextInt();
 
+                    for (int i = 0; i < 10; i++) {
+                        novoCliente[i].excluirCliente(idConta);
+
+                    }
+                    
+                    break;
                 case 4:
+
+                    
                     break;
 
-                case 5:
-                    break;
-
+                //case 5 -> {
+                //}
                 case 6:
                     for (int i = 0; i < 10; i++) {
                         System.out.println("------------------------------");
@@ -142,6 +120,32 @@ public class BicicletariaVetor {
                     break;
 
                 case 7:
+                    System.out.println("CADASTRAR PRODUTO");
+
+                    for (int i = 0; i < 10; i++) {
+                        novaBicicleta[i].codigoBicicleta = 0 + i;
+                        novaBicicleta[i].estoque = 0 + i;
+                        novaBicicleta[i].marca = ("KFT BIKES" + (i));
+                        novaBicicleta[i].modelo = ("FENRE 21v" + (i));
+                        novaBicicleta[i].fabricante = ("JOWKL" + (i));
+                        novaBicicleta[i].materialQuadro = ("Carbono 2" + (i));
+                        novaBicicleta[i].cor = ("preta maron" + (i));
+                        novaBicicleta[i].aro = ("29" + (i));
+                        novaBicicleta[i].tamanho = ("145 x 80 x 23 cm; 15 Quilogramas" + (i));
+                        novaBicicleta[i].raio = ("Atakaf" + (i));
+                        novaBicicleta[i].pneu = ("Atakaf" + (i));
+                        novaBicicleta[i].freio = ("Shimaru" + (i));
+                        novaBicicleta[i].pedaleira = ("Pedal em Nylon" + (i));
+                        novaBicicleta[i].cambio = ("Shimaru" + (i));
+                        novaBicicleta[i].corrente = ("Shimaru" + (i));
+                        novaBicicleta[i].coroa = ("Shimaru" + (i));
+                        novaBicicleta[i].quantidadeMarchas = ("21" + (i));
+                        novaBicicleta[i].guidao = ("Mahunte" + (i));
+                        novaBicicleta[i].banco = ("Kaffer" + (i));
+                        novaBicicleta[i].suspensão = ("Dianteira" + (i));
+
+                        System.out.println(novaBicicleta[i].guidao);
+                    }
                     break;
 
             }

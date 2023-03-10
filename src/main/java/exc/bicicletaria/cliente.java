@@ -19,6 +19,9 @@ class cliente {
     String rg;
     String email;
     
+    public static void cadastrar(){
     
+    
+    }
     
 }
