@@ -37,8 +37,8 @@ public class BicicletariaVetor {
             System.out.println("[1] - CADASTRAR CLIENTE");
             System.out.println("[2] - BUSCAR CLIENTE");
             System.out.println("[3] - EXCLUIR CLIENTE");
-            System.out.println("[4] - EDITAR CLIENTE");
-            System.out.println("[5] - EXCLUIR");
+            System.out.println("[4] - MANUTENÇÃO");
+            System.out.println("[5] - MANUTENÇÃO");
             System.out.println("[6] - MANUTENÇÃO");
             System.out.println("[7] - MANUTENÇÃO");
             op = Ler.nextInt();
