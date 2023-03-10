@@ -1,4 +1,4 @@
-# bicicletaria
+# Loja de venda de Bicicletas
 
 O sistema que será desenvolvido tem o objetivo de auxiliar no gerenciamento de vendas, tendo como objetivo, 
 manter um maior controle sobre as mesmas, melhorando o processo de gestão da loja, assim dando mais acessibilidade aos dados/informações.
